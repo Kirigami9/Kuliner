@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kuliner Medan | Katalog UMKM</title>
+
+  <!-- Bootstrap 5: framework untuk layout responsif -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Ikon Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+
+  <style>
+    :root { --brand: #b94b2c; --brand-dark: #87351f; --cream: #fff8f1; }
+    * { font-family: "Poppins", sans-serif; }
+    body { background: #fff; color: #292522; }
+    .navbar { background: rgba(255,255,255,.96); }
+    .brand-mark { width: 42px; height: 42px; display:grid; place-items:center; border-radius:13px; background:var(--brand); color:#fff; }
+    .hero { background: linear-gradient(110deg, rgba(30,20,15,.82), rgba(30,20,15,.35)), url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85") center/cover; color:white; min-height:470px; display:flex; align-items:center; }
+    .hero h1 { font-weight:800; line-height:1.15; }
+    .text-brand { color:var(--brand)!important; }
+    .btn-brand { background:var(--brand); color:white; border:0; }
+    .btn-brand:hover { background:var(--brand-dark); color:white; }
+    .section-soft { background:var(--cream); }
+    .menu-card { border:0; border-radius:18px; overflow:hidden; box-shadow:0 8px 28px rgba(40,20,10,.08); height:100%; transition:.2s; }
+    .menu-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(40,20,10,.13); }
+    .menu-img { height:300px; object-fit:cover; }
+    .category-pill { background:#f8e8df; color:var(--brand-dark); }
+    .price { color:var(--brand); font-weight:700; }
+    .feature-icon { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:#f8e8df; color:var(--brand); font-size:1.35rem; }
+    footer { background:#251d19; color:#eee2dc; }
+    .form-control:focus { border-color:#d58a70; box-shadow:0 0 0 .2rem rgba(185,75,44,.12); }
+    .cart-count { font-size:.7rem; }
+    @media(max-width:576px) { .hero { min-height:420px; } .hero h1 { font-size:2.25rem; } }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR: ubah nama toko pada bagian teks di bawah -->
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
+        <span class="brand-mark"><i class="bi bi-egg-fried"></i></span>
+        <span id="brandNameNav">Rasa Medan</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Katalog Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+          <li class="nav-item">
+            <button class="btn btn-brand rounded-pill px-3" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">
+              <i class="bi bi-bag me-1"></i> Keranjang
+              <span id="cartCount" class="badge bg-light text-dark cart-count">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / BERANDA -->
+  <header class="hero" id="beranda">
+    <div class="container py-5">
+      <div class="col-lg-7">
+        <span class="badge rounded-pill bg-warning text-dark mb-3 px-3 py-2">Cita rasa khas Kota Medan</span>
+        <h1 class="display-4 mb-3">Temukan Rasa,<br>Pesan dengan Mudah.</h1>
+        <p class="lead mb-4">Jelajahi pilihan kuliner UMKM lokal Medan. Pilih menu favoritmu dan pesan langsung melalui WhatsApp.</p>
+        <a href="#menu" class="btn btn-brand btn-lg rounded-pill px-4">Lihat Katalog <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- KEUNGGULAN -->
+  <section class="py-4 section-soft">
+    <div class="container">
+      <div class="row g-3 text-center">
+        <div class="col-md-4"><div class="d-flex align-items-center justify-content-center gap-3"><span class="feature-icon"><i class="bi bi-shop"></i></span><div class="text-start"><b>UMKM Lokal</b><div class="small text-secondary">Dukung usaha sekitar</div></div></div></div>
+        <div class="col-md-4"><div class="d-flex align-items-center justify-content-center gap-3"><span class="feature-icon"><i class="bi bi-chat-dots"></i></span><div class="text-start"><b>Pesan via WhatsApp</b><div class="small text-secondary">Praktis dan langsung</div></div></div></div>
+        <div class="col-md-4"><div class="d-flex align-items-center justify-content-center gap-3"><span class="feature-icon"><i class="bi bi-heart"></i></span><div class="text-start"><b>Rasa Pilihan</b><div class="small text-secondary">Menu favorit warga Medan</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KATALOG -->
+  <main class="container py-5" id="menu">
+    <div class="text-center mb-4">
+      <span class="text-brand fw-semibold">KATALOG KAMI</span>
+      <h2 class="fw-bold mt-2">Pilih Menu Favoritmu</h2>
+      <p class="text-secondary">Cari makanan atau minuman yang ingin kamu pesan.</p>
+    </div>
+    <div class="row g-2 mb-4">
+      <div class="col-md-7">
+        <div class="input-group">
+          <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+          <input type="search" id="searchInput" class="form-control" placeholder="Cari nama menu...">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <select id="categoryFilter" class="form-select">
+          <option value="Semua">Semua kategori</option>
+          <option value="Makanan">Makanan</option>
+          <option value="Minuman">Minuman</option>
+          <option value="Camilan">Camilan</option>
+        </select>
+      </div>
+    </div>
+    <div class="row g-4" id="menuList">
+      <!-- Kartu produk dibuat otomatis dari data pada app.js -->
+    </div>
+    <p id="emptyMessage" class="text-center text-secondary py-5 d-none">Menu tidak ditemukan. Coba kata kunci lain.</p>
+  </main>
+
+
+
+
+  <!-- TENTANG -->
+  <section class="section-soft py-5" id="tentang">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <img
+           id="aboutSlideshow"
+           class="img-fluid rounded-4 shadow"
+           src=""
+           alt="Foto produk UMKM"
+           loading="lazy"
+           style="width: 100%; height: 350px; object-fit: cover;"
+>
+        </div>
+        <div class="col-lg-6">
+          <span class="text-brand fw-semibold">TENTANG KAMI</span>
+          <h2 class="fw-bold mt-2">Mendukung Kuliner Lokal Medan</h2>
+          <p class="text-secondary">Kami membantu pelanggan mengenal produk kuliner UMKM lokal melalui katalog digital yang mudah digunakan. Pilih produk, masukkan ke keranjang, lalu kirim pesanan melalui WhatsApp.</p>
+          <p class="mb-1"><i class="bi bi-geo-alt-fill text-brand me-2"></i><span id="storeAddress">Medan, Sumatera Utara</span></p>
+          <p><i class="bi bi-clock-fill text-brand me-2"></i>Jam operasional: <span id="storeHours">08.00-21.00 WIB</span></p>
+          <a id="contactLink" class="btn btn-brand rounded-pill px-4" href="#" target="_blank"><i class="bi bi-whatsapp me-2"></i>Hubungi Kami</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <div><b id="brandNameFooter">Rasa Medan</b><div class="small">Katalog digital UMKM kuliner Medan.</div></div>
+      <div class="small align-self-md-end">© <span id="year"></span> <span id="brandNameCopyright">Rasa Medan</span>. Dibuat untuk promosi UMKM lokal.</div>
+    </div>
+  </footer>
+
+  <!-- PANEL KERANJANG -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title fw-bold"><i class="bi bi-bag me-2"></i>Keranjang Pesanan</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="flex-grow-1">
+        <p class="text-secondary">Keranjang masih kosong.</p>
+      </div>
+      <div class="border-top pt-3">
+        <div class="d-flex justify-content-between fw-bold mb-3"><span>Total</span><span id="cartTotal">Rp0</span></div>
+        <label for="customerName" class="form-label small">Nama pemesan</label>
+        <input id="customerName" class="form-control mb-3" placeholder="Masukkan nama kamu">
+        <button id="checkoutButton" class="btn btn-success w-100 rounded-pill"><i class="bi bi-whatsapp me-2"></i>Pesan via WhatsApp</button>
+        <p class="small text-secondary mt-2 mb-0">Pesanan akan dikirim ke WhatsApp toko untuk dikonfirmasi.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
